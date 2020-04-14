@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  gather_facts: true
+  remote_user: root
+  tasks:
+  
+      - name: Install ansible galaxy role 
+        raw: ansible-galaxy install calvinbui.ansible_bookstack_docker
+
+      - name: Run main playbook
+        raw: ansible-playbook -i /etc/ansible/bookstack-master.hosts  install.yml
